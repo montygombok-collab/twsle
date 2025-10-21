@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صحتك بالدنيا | بودكاست صحي</title>
+    <style>
+        /* التصميم الأساسي */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+        
+        .episode-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🎙️ بودكاست "صحتك بالدنيا"</h1>
+        <p>رحلة نحو حياة أكثر صحة وسعادة</p>
+    </header>
+
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#episodes">الحلقات</a>
+        <a href="#about">عن البودكاست</a>
+        <a href="#contact">اتصل بنا</a>
+    </nav>
+
+    <main>
+        <section id="featured">
+            <h2>الحلقة المميزة</h2>
+            <div class="featured-episode">
+                <audio controls style="width: 100%">
+                    <source src="episode1.mp3" type="audio/mpeg">
+                    المتصفح لا يدعم تشغيل الصوت
+                </audio>
+            </div>
+        </section>
+
+        <section id="episodes" class="episodes-grid">
+            <!-- قائمة الحلقات -->
+            <div class="episode-card">
+                <h3>الحلقة 1: الصحة النفسية</h3>
+                <p>نصائح للحفاظ على الصحة النفسية في الحياة اليومية</p>
+                <audio controls style="width: 100%">
+                    <source src="ep1.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            
+            <div class="episode-card">
+                <h3>الحلقة 2: التغذية السليمة</h3>
+                <p>أسس التغذية الصحية المتوازنة</p>
+                <audio controls style="width: 100%">
+                    <source src="ep2.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 بودكاست صحتك بالدنيا. جميع الحقوق محفوظة</p>
+    </footer>
+</body>
+</html>
