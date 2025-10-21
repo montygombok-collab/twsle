@@ -3,85 +3,723 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صحتك بالدنيا | بودكاست صحي</title>
+    <title>صحتك بالدنيا | بودكاست صحي للفتيات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* التصميم الأساسي */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
+        :root {
+            --primary-color: #ff6b93;
+            --secondary-color: #ffa5b9;
+            --accent-color: #ff4d7a;
+            --light-color: #fff5f7;
+            --dark-color: #8a3a52;
+            --text-color: #5a2a3a;
         }
         
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ffa5b9" opacity="0.1" d="M30,50 C30,65 45,75 50,75 C55,75 70,65 70,50 C70,35 55,25 50,25 C45,25 30,35 30,50 Z"/></svg>');
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* الترويسة */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
             color: white;
-            padding: 2rem;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="white" opacity="0.1" d="M30,50 C30,65 45,75 50,75 C55,75 70,65 70,50 C70,35 55,25 50,25 C45,25 30,35 30,50 Z"/></svg>');
+            background-size: 150px;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
             text-align: center;
         }
         
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            background: white;
+            color: var(--primary-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        /* القائمة */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icons a {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* الأقسام */
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        /* الحلقة المميزة */
+        .featured-episode {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            margin-bottom: 3rem;
+        }
+        
+        .featured-image {
+            flex: 1;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+        
+        .featured-content {
+            flex: 2;
+            padding: 2rem;
+        }
+        
+        .featured-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .episode-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        .audio-player {
+            width: 100%;
+            margin: 1.5rem 0;
+        }
+        
+        .episode-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 147, 0.4);
+        }
+        
+        /* قائمة الحلقات */
         .episodes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
-            padding: 2rem;
         }
         
         .episode-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .episode-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .episode-image {
+            height: 180px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .episode-info {
             padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .episode-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .episode-date {
+            color: var(--dark-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .episode-excerpt {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        /* الفريق */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        .member-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .member-role {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* النشرة البريدية */
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+        
+        .newsletter h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            background: var(--dark-color);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background: #6a2c41;
+        }
+        
+        /* التذييل */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #e0c4cf;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e0c4cf;
+            font-size: 0.9rem;
+        }
+        
+        /* التجاوبية */
+        @media (max-width: 768px) {
+            .featured-episode {
+                flex-direction: column;
+            }
+            
+            .featured-image {
+                min-height: 200px;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                border-radius: 30px;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>🎙️ بودكاست "صحتك بالدنيا"</h1>
-        <p>رحلة نحو حياة أكثر صحة وسعادة</p>
+    <!-- الترويسة -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-podcast"></i>
+                <h1>صحتك بالدنيا</h1>
+            </div>
+            <p class="tagline">بودكاست صحي يهتم برحلة الفتاة نحو حياة أكثر صحة وسعادة</p>
+        </div>
     </header>
 
+    <!-- القائمة -->
     <nav>
-        <a href="#home">الرئيسية</a>
-        <a href="#episodes">الحلقات</a>
-        <a href="#about">عن البودكاست</a>
-        <a href="#contact">اتصل بنا</a>
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#episodes">الحلقات</a></li>
+                <li><a href="#about">عن البودكاست</a></li>
+                <li><a href="#team">فريق العمل</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-spotify"></i></a>
+                <a href="#"><i class="fab fa-apple"></i></a>
+            </div>
+        </div>
     </nav>
 
-    <main>
+    <!-- المحتوى الرئيسي -->
+    <main class="container">
+        <!-- الحلقة المميزة -->
         <section id="featured">
-            <h2>الحلقة المميزة</h2>
+            <div class="section-title">
+                <h2>الحلقة المميزة</h2>
+            </div>
             <div class="featured-episode">
-                <audio controls style="width: 100%">
-                    <source src="episode1.mp3" type="audio/mpeg">
-                    المتصفح لا يدعم تشغيل الصوت
-                </audio>
+                <div class="featured-image">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="featured-content">
+                    <h3>الصحة النفسية في عالم متسارع</h3>
+                    <div class="episode-meta">
+                        <span><i class="far fa-calendar"></i> 15 مايو 2023</span>
+                        <span><i class="far fa-clock"></i> 45 دقيقة</span>
+                        <span><i class="fas fa-headphones"></i> 2.4K استماع</span>
+                    </div>
+                    <p class="episode-description">
+                        في هذه الحلقة نناقش كيفية الحفاظ على الصحة النفسية في عالم يتسم بالتسارع والضغوط. نستضيف د. سارة أحمد، الأخصائية النفسية، للحديث عن استراتيجيات التعامل مع التوتر وبناء المرونة النفسية.
+                    </p>
+                    <audio controls class="audio-player">
+                        <source src="episode1.mp3" type="audio/mpeg">
+                        المتصفح لا يدعم تشغيل الصوت
+                    </audio>
+                    <div class="episode-actions">
+                        <a href="#" class="btn"><i class="fas fa-play"></i> استمع الآن</a>
+                        <a href="#" class="btn" style="background: transparent; color: var(--primary-color); border: 1px solid var(--primary-color); margin-right: 10px;"><i class="far fa-heart"></i> أضف إلى المفضلة</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="episodes" class="episodes-grid">
-            <!-- قائمة الحلقات -->
-            <div class="episode-card">
-                <h3>الحلقة 1: الصحة النفسية</h3>
-                <p>نصائح للحفاظ على الصحة النفسية في الحياة اليومية</p>
-                <audio controls style="width: 100%">
-                    <source src="ep1.mp3" type="audio/mpeg">
-                </audio>
+        <!-- الحلقات -->
+        <section id="episodes">
+            <div class="section-title">
+                <h2>الحلقات السابقة</h2>
             </div>
-            
-            <div class="episode-card">
-                <h3>الحلقة 2: التغذية السليمة</h3>
-                <p>أسس التغذية الصحية المتوازنة</p>
-                <audio controls style="width: 100%">
-                    <source src="ep2.mp3" type="audio/mpeg">
-                </audio>
+            <div class="episodes-grid">
+                <!-- الحلقة 1 -->
+                <div class="episode-card">
+                    <div class="episode-image">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="episode-info">
+                        <h3>التغذية السليمة للفتيات</h3>
+                        <div class="episode-date">
+                            <i class="far fa-calendar"></i> 8 مايو 2023
+                        </div>
+                        <p class="episode-excerpt">
+                            دليلك الشامل للتغذية الصحية والمتوازنة التي تناسب احتياجات الفتيات في مختلف المراحل العمرية.
+                        </p>
+                        <a href="#" class="btn">استمع الآن</a>
+                    </div>
+                </div>
+                
+                <!-- الحلقة 2 -->
+                <div class="episode-card">
+                    <div class="episode-image">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="episode-info">
+                        <h3>الرياضة ونمط الحياة النشط</h3>
+                        <div class="episode-date">
+                            <i class="far fa-calendar"></i> 1 مايو 2023
+                        </div>
+                        <p class="episode-excerpt">
+                            كيف تجعلين الرياضة جزءاً من روتينك اليومي وتستمتعين بنمط حياة صحي ونشط.
+                        </p>
+                        <a href="#" class="btn">استمع الآن</a>
+                    </div>
+                </div>
+                
+                <!-- الحلقة 3 -->
+                <div class="episode-card">
+                    <div class="episode-image">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="episode-info">
+                        <h3>جودة النوم وأهميته</h3>
+                        <div class="episode-date">
+                            <i class="far fa-calendar"></i> 24 أبريل 2023
+                        </div>
+                        <p class="episode-excerpt">
+                            أسرار النوم الصحي وكيفية تحسين جودة نومك لتستيقظي بنشاط وحيوية كل صباح.
+                        </p>
+                        <a href="#" class="btn">استمع الآن</a>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- فريق العمل -->
+        <section id="team">
+            <div class="section-title">
+                <h2>فريق العمل</h2>
+            </div>
+            <div class="team-grid">
+                <!-- عضو الفريق 1 -->
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="member-name">سلمى أحمد</h3>
+                    <div class="member-role">مقدمة البودكاست</div>
+                    <p>أخصائية تغذية ومقدمة برامج توعوية في مجال الصحة واللياقة البدنية.</p>
+                </div>
+                
+                <!-- عضو الفريق 2 -->
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="member-name">نورا السعدي</h3>
+                    <div class="member-role">منتجة ومحررة</div>
+                    <p>خبيرة في الإنتاج الصوتي والتعديل، تحب تقديم محتوى هادف وجذاب.</p>
+                </div>
+                
+                <!-- عضو الفريق 3 -->
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="member-name">فاطمة محمد</h3>
+                    <div class="member-role">مديرة المحتوى</div>
+                    <p>تساعد في البحث وتطوير مواضيع الحلقات وتضمن جودة المحتوى المقدم.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- النشرة البريدية -->
+        <section class="newsletter">
+            <h2>انضمي إلى قائمتنا البريدية</h2>
+            <p>اشتركي ليصلك إشعار عند نشر حلقة جديدة، بالإضافة إلى نصائح صحية حصرية مباشرة إلى بريدك الإلكتروني.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="بريدك الإلكتروني" required>
+                <button type="submit">اشتراك</button>
+            </form>
         </section>
     </main>
 
+    <!-- التذييل -->
     <footer>
-        <p>© 2024 بودكاست صحتك بالدنيا. جميع الحقوق محفوظة</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>صحتك بالدنيا</h3>
+                    <p>بودكاست صحي يهدف إلى نشر الوعي الصحي بين الفتيات وتمكينهن من عيش حياة أكثر صحة وسعادة.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#episodes">الحلقات</a></li>
+                        <li><a href="#about">عن البودكاست</a></li>
+                        <li><a href="#team">فريق العمل</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>وسائل التواصل</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fab fa-instagram"></i> إنستغرام</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> تويتر</a></li>
+                        <li><a href="#"><i class="fab fa-spotify"></i> سبوتيفاي</a></li>
+                        <li><a href="#"><i class="fab fa-apple"></i> آبل بودكاست</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 بودكاست "صحتك بالدنيا". جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // إضافة تفاعلية بسيطة
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة تأثير التمرير السلس للروابط
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // إضافة تأثير للبطاقات عند التمرير
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // تطبيق التأثير على البطاقات
+            const cards = document.querySelectorAll('.episode-card, .team-member');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
 </html>
