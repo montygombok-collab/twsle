@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيادة الدكتور أحمد مصطفى خضر - الاستشارات الطبية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* أنماط CSS */
+        :root {
+            --medical-blue: #1a73e8;
+            --medical-green: #34a853;
+            --medical-light: #f8f9fa;
+            --medical-white: #ffffff;
+            --medical-dark: #202124;
+            --glow-color: rgba(26, 115, 232, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--medical-light);
+            color: var(--medical-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* رأس الصفحة */
+        header {
+            background-color: var(--medical-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--medical-blue);
+            margin-left: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--medical-blue);
+        }
+        
+        .logo-text span {
+            color: var(--medical-green);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--medical-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--medical-blue);
+            background-color: rgba(26, 115, 232, 0.1);
+        }
+        
+        nav ul li a.active {
+            color: var(--medical-blue);
+            background-color: rgba(26, 115, 232, 0.1);
+        }
+        
+        /* قسم البطل */
+        .hero {
+            background: linear-gradient(135deg, var(--medical-blue) 0%, #6ab1f7 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--glow-color);
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px var(--glow-color);
+            }
+            to {
+                text-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
+            }
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--medical-green);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #2d8c47;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* قسم حول الدكتور */
+        .about {
+            padding: 80px 0;
+            background-color: var(--medical-white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--medical-blue);
+            display: inline-block;
+            padding-bottom: 10px;
+            text-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--medical-green);
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .doctor-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--medical-blue);
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .qualifications {
+            margin-top: 30px;
+        }
+        
+        .qualifications h4 {
+            color: var(--medical-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .qualifications ul {
+            list-style: none;
+        }
+        
+        .qualifications ul li {
+            margin-bottom: 10px;
+            padding-right: 25px;
+            position: relative;
+        }
+        
+        .qualifications ul li::before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: var(--medical-green);
+            font-weight: bold;
+        }
+        
+        /* قسم التخصصات */
+        .specialties {
+            padding: 80px 0;
+            background-color: var(--medical-light);
+        }
+        
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .specialty-card {
+            background-color: var(--medical-white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .specialty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .specialty-icon {
+            font-size: 3rem;
+            color: var(--medical-blue);
+            margin-bottom: 20px;
+        }
+        
+        .specialty-card h3 {
+            color: var(--medical-blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* قسم الاستشارات */
+        .consultation {
+            padding: 80px 0;
+            background-color: var(--medical-white);
+        }
+        
+        .consultation-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .consultation-form {
+            flex: 1;
+            background-color: var(--medical-light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .consultation-info {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--medical-dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--medical-blue);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .consultation-info h3 {
+            color: var(--medical-blue);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
+        }
+        
+        .consultation-info p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--medical-blue);
+            margin-left: 15px;
+        }
+        
+        /* قسم الاتصال */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--medical-blue) 0%, #6ab1f7 100%);
+            color: white;
+        }
+        
+        .contact .section-title h2 {
+            color: white;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-details {
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-left: 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .contact-map {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .map-placeholder {
+            background-color: #e9e9e9;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--medical-dark);
+            font-weight: bold;
+        }
+        
+        /* تذييل الصفحة */
+        footer {
+            background-color: var(--medical-dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            padding: 0 15px;
+        }
+        
+        .footer-column h3 {
+            color: var(--medical-blue);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--medical-blue);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--medical-blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 992px) {
+            .about-content, .consultation-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-wrap: wrap;
+            }
+            
+            .footer-column {
+                flex: 0 0 50%;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .specialties-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- رأس الصفحة -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-stethoscope"></i>
+                    <div class="logo-text">د. أحمد <span>مصطفى خضر</span></div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">الرئيسية</a></li>
+                        <li><a href="#">عن الدكتور</a></li>
+                        <li><a href="#">الاستشارات</a></li>
+                        <li><a href="#">المقالات الطبية</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>الدكتور أحمد مصطفى خضر</h1>
+                <p>استشاري طب الأسرة والرعاية الصحية الأولية مع أكثر من 15 عاماً من الخبرة في تقديم الرعاية الطبية الشاملة والمتميزة</p>
+                <a href="#consultation" class="btn">احجز استشارة طبية</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم حول الدكتور -->
+    <section class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>عن الدكتور</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400x500/1a73e8/ffffff?text=د.+أحمد+مصطفى+خضر" alt="الدكتور أحمد مصطفى خضر" class="doctor-img">
+                </div>
+                <div class="about-text">
+                    <h3>الدكتور أحمد مصطفى خضر</h3>
+                    <p>استشاري طب الأسرة والرعاية الصحية الأولية، حاصل على البورد العربي في طب الأسرة وماجستير في الصحة العامة من جامعة القاهرة.</p>
+                    <p>يتمتع الدكتور أحمد بخبرة واسعة في تشخيص وعلاج الأمراض الشائعة، وإدارة الحالات المزمنة، والرعاية الوقائية لأفراد الأسرة بجميع أعمارهم.</p>
+                    
+                    <div class="qualifications">
+                        <h4>المؤهلات العلمية والخبرات:</h4>
+                        <ul>
+                            <li>بورد الطب البشري - جامعة عين شمس</li>
+                            <li>البورد العربي في طب الأسرة</li>
+                            <li>ماجستير الصحة العامة - جامعة القاهرة</li>
+                            <li>دبلومة التغذية العلاجية</li>
+                            <li>زمالة الجمعية المصرية لطب الأسرة</li>
+                            <li>عضو الجمعية الأمريكية لطب الأسرة</li>
+                            <li>خبرة 15 عاماً في المستشفيات والمراكز الطبية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التخصصات -->
+    <section class="specialties">
+        <div class="container">
+            <div class="section-title">
+                <h2>التخصصات والخدمات</h2>
+            </div>
+            <div class="specialties-grid">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>طب الأسرة الشامل</h3>
+                    <p>رعاية طبية شاملة لجميع أفراد الأسرة من الأطفال إلى كبار السن، مع التركيز على الوقاية والكشف المبكر عن الأمراض.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>الاستشارات الطبية</h3>
+                    <p>تقديم استشارات طبية متخصصة لتشخيص الحالات المرضية ووضع خطط العلاج المناسبة مع المتابعة المستمرة.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <h3>إدارة الأمراض المزمنة</h3>
+                    <p>برامج متكاملة لإدارة الأمراض المزمنة مثل السكري، ضغط الدم، وأمراض القلب مع متابعة منتظمة وتحسين جودة الحياة.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3>الرعاية الوقائية</h3>
+                    <p>برامج التطعيمات، الفحوصات الدورية، ونمط الحياة الصحي للوقاية من الأمراض وتعزيز الصحة العامة.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-notes-medical"></i>
+                    </div>
+                    <h3>التغذية العلاجية</h3>
+                    <p>تقديم استشارات التغذية المتخصصة وبرامج إنقاص الوزن وعلاج السمنة والأمراض المرتبطة بالنظام الغذائي.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>الصحة النفسية</h3>
+                    <p>تقديم الدعم النفسي والاستشارات الأولية للاضطرابات النفسية الشائعة وإحالة الحالات المتخصصة عند الحاجة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الاستشارات -->
+    <section class="consultation" id="consultation">
+        <div class="container">
+            <div class="section-title">
+                <h2>الاستشارات الطبية</h2>
+            </div>
+            <div class="consultation-content">
+                <div class="consultation-form">
+                    <h3>احجز استشارة طبية</h3>
+                    <form id="consultationForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="consultationType">نوع الاستشارة</label>
+                            <select id="consultationType" class="form-control" required>
+                                <option value="">اختر نوع الاستشارة</option>
+                                <option value="general">استشارة عامة</option>
+                                <option value="chronic">إدارة مرض مزمن</option>
+                                <option value="nutrition">استشارة تغذية</option>
+                                <option value="preventive">رعاية وقائية</option>
+                                <option value="mental">صحة نفسية</option>
+                                <option value="other">استشارة أخرى</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">الرسالة (اختياري)</label>
+                            <textarea id="message" class="form-control" placeholder="يمكنك كتابة أي استفسارات إضافية هنا..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">إرسال طلب الاستشارة</button>
+                    </form>
+                </div>
+                
+                <div class="consultation-info">
+                    <h3>معلومات الاستشارة</h3>
+                    <p>نقدم استشارات طبية متخصصة عبر الإنترنت أو في العيادة، مع مراعاة خصوصية المريض وتقديم الرعاية المثلى.</p>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>مواعيد العمل</h4>
+                            <p>من السبت إلى الخميس: 9 صباحاً - 9 مساءً</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-video"></i>
+                        <div>
+                            <h4>الاستشارات عبر الإنترنت</h4>
+                            <p>متاحة عبر Zoom أو WhatsApp للراحة والمرونة</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-file-medical"></i>
+                        <div>
+                            <h4>متابعة الحالات</h4>
+                            <p>نقدم متابعة منتظة للحالات المزمنة وتقييم تقدم العلاج</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <h4>خصوصية تامة</h4>
+                            <p>جميع الاستشارات والبيانات الطبية محمية بسرية تامة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الاتصال -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>اتصل بنا</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>معلومات الاتصال</h3>
+                    <p>يمكنك التواصل معنا عبر أي من الوسائل التالية لطلب الاستشارة أو الحصول على معلومات إضافية.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>عنوان العيادة</h4>
+                                <p>123 شارع الطب، حي الأطباء، القاهرة، مصر</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>هاتف العيادة</h4>
+                                <p>+20 123 456 7890</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>البريد الإلكتروني</h4>
+                                <p>info@drahmedkhader.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>مواعيد العمل</h4>
+                                <p>السبت - الخميس: 9 ص - 9 م</p>
+                                <p>الجمعة: مغلق</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-map">
+                    <div class="map-placeholder">
+                        خريطة موقع العيادة
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>عن العيادة</h3>
+                    <p>عيادة الدكتور أحمد مصطفى خضر تقدم رعاية طبية شاملة ومتميزة لجميع أفراد الأسرة، مع التركيز على الجودة والراحة والخصوصية.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#">عن الدكتور</a></li>
+                        <li><a href="#">الاستشارات الطبية</a></li>
+                        <li><a href="#">المقالات الطبية</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>الخدمات</h3>
+                    <ul>
+                        <li><a href="#">طب الأسرة الشامل</a></li>
+                        <li><a href="#">الاستشارات الطبية</a></li>
+                        <li><a href="#">إدارة الأمراض المزمنة</a></li>
+                        <li><a href="#">الرعاية الوقائية</a></li>
+                        <li><a href="#">التغذية العلاجية</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 شارع الطب، القاهرة</li>
+                        <li><i class="fas fa-phone"></i> +20 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@drahmedkhader.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2023 عيادة الدكتور أحمد مصطفى خضر</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // نموذج JavaScript بسيط للتعامل مع النموذج
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('شكراً لك! تم استلام طلب الاستشارة بنجاح، سنتواصل معك في أقرب وقت ممكن.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
